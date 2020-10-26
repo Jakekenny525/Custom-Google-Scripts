@@ -1,0 +1,37 @@
+/*
+* Returns hammer price
+* @customfunction
+*/
+function getHP(){
+  var row = SpreadsheetApp.getActiveSheet().getActiveCell().getRow();
+  return SpreadsheetApp.getActiveSheet().getRange(row, 3).getValue();
+}
+
+/*
+* Returns buyer's premium (25% hammer price)
+* @customfunction
+*/
+function getBP() {
+  return getHP() * 0.25;
+}
+
+/*
+* Returns seller's commission (10% hammer price)
+* @customfunction
+*/
+function getSP(){
+  return getHP() * 0.1;
+}
+
+/*
+* Returns gross price
+* @customfunction
+*/
+function getGP(){
+  return getHP() + getBP() + getSP();
+}
+
+//@customfunction
+function onEdit(e){
+ SpreadsheetApp.getActiveSpreadsheet().getRange('Z1').setValue(Math.random()); 
+}
