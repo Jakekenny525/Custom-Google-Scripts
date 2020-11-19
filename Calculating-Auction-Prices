@@ -8,11 +8,11 @@ function getHP(){
 }
 
 /*
-* Returns buyer's premium (25% hammer price)
+* Returns buyer's premium (23% hammer price)
 * @customfunction
 */
 function getBP() {
-  return getHP() * 0.25;
+  return getHP() * 0.23;
 }
 
 /*
@@ -24,11 +24,19 @@ function getSP(){
 }
 
 /*
-* Returns gross price
+* Returns buyer's price (formerly called Gross Price)
 * @customfunction
 */
 function getGP(){
-  return getHP() + getBP() + getSP();
+  return getHP() + (getHP() * 0.28);
+}
+
+/*
+* Returns seller's net
+* @customfunction
+*/
+function getSN(){
+  return getHP() - getSP();
 }
 
 //@customfunction
